@@ -16,10 +16,10 @@ initial commit of a working boilerplate.
 
 ### Things I want to add
 
-- [] Modernizer
-- [] a 'build folder' construct
-- [] separate dev/styleguid browsersync servers
+- [ ] Modernizer
+- [ ] a 'build folder' construct
+- [ ] separate dev/styleguid browsersync servers
 
 ### Things I need to look at / fix
 
-- [] Browsersync so it works on devices
+- [ ] Browsersync so it works on devices
