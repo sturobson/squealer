@@ -1,0 +1,22 @@
+
+
+@mixin mq($point, $query1: min, $IE: false, $query2: width) {
+    @if $IE == true{
+        .lt-ie9 & {
+            @content;
+        }
+    }
+
+    @media (#{$query1}-#{$query2}: $point / $doc-font-size +em) {
+        @content;
+    }
+}
+
+
+// Orientation Media Query Mixin
+
+@mixin orient($orientation: landscape) {
+    @media (orientation : $orientation) {
+        @content;
+    }
+}

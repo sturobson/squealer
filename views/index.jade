@@ -1,0 +1,26 @@
+doctype
+html.no-js(lang='en')
+  head
+    include includes/document-head
+
+  body
+
+    block body-start
+
+    .centering
+
+      block main-header
+        include layout/main-header
+
+      block main-navigation
+        include layout/main-navigation
+
+      main#content.main-content(role='main')
+        block content
+
+      block main-footer
+        include layout/main-footer
+
+    block body-end
+    include includes/bottom
+    

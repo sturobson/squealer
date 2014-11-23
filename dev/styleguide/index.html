@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>kss-node Styleguide</title>
+    <meta name="description" content="" />
+    <meta name="generator" content="kss-node" />
+    <link rel="stylesheet" href="public/kss.css" />
+    <link rel="stylesheet" href="public/style.css" />
+    <!--[if lt IE 9]>
+    <script src="public/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body id="kss-node">
+    <div class="kss-wrapper">
+      <div class="kss-sidebar">
+        <div class="kss-sidebar-inner">
+          <header class="kss-header">
+            <h1 class="kss-doc-title"><a href="./">kss-node Styleguide</a></h1>
+          </header>
+          <nav class="kss-nav">
+            <ul class="kss-menu" data-kss-ref="0">
+              <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="kss-content">
+        <article class="kss-article">
+          <section id="section-0" class="kss-section kss-overview">
+            <h1 id="kss-node-template">kss-node-template</h1>
+<p>This is a <strong>template</strong> for <a href="https://github.com/hughsk/kss-node">kss-node</a> styleguide.
+&quot;kss-node&quot; is a NodeJS implementation of <a href="https://github.com/kneath/kss">Knyle Style Sheets</a> (KSS).
+kss-node enables us to generate a beatiful styleguide for CSS, of course that suports LESS, SASS and Stylus.</p>
+<p>You can see the example styleguide from the left navi.
+That is thanks to <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>.</p>
+<h2 id="download">Download</h2>
+<p><strong><a href="https://github.com/htanjo/kss-node-template/archive/master.zip">kss-node-template</a></strong> [zip] or</p>
+<pre><code>git clone git://github.com/htanjo/kss-node-template.git
+</code></pre><p><strong>Note:</strong> This package contains only template files.
+You have to install kss-node at first.</p>
+<h2 id="how-to-apply-this-template">How to apply this template</h2>
+<ol>
+<li>Install kss-node. Type <code>npm install kss</code> or <code>npm install -g kss</code> for global CLI.</li>
+<li>Download <a href="https://github.com/htanjo/kss-node-template/archive/master.zip">kss-node-template</a> and copy the &quot;template&quot; folder into your working directory.</li>
+<li>Run <code>kss-node</code> command with <code>--template</code> option, like below.</li>
+</ol>
+<pre><code>kss-node &lt;sourcedir&gt; --template path/to/template
+</code></pre><h2 id="license">License</h2>
+<p>This template is under the <a href="https://github.com/htanjo/kss-node-template/blob/master/LICENSE">MIT License</a>.</p>
+<h1 id="kss-node-quickstart">kss-node quickstart</h1>
+<p>I introduce about kss-node briefly.</p>
+<p>If you want to learn kss-node, please refer <a href="https://github.com/hughsk/kss-node">kss-node project page</a>.
+And also the original <a href="https://github.com/kneath/kss/blob/master/SPEC.md">KSS specification</a> may be helpful for writing your documentation.</p>
+<h2 id="installation">Installation</h2>
+<p>As kss-node is provided as a npm package, you can install by just typing <code>npm install kss</code>.
+If you want to use the command line interface, install it globally.</p>
+<pre><code>npm install -g kss
+</code></pre><h2 id="format">Format</h2>
+<p>kss-node is almost compatible with KSS documentation.
+But kss-node can depend on only comment in source code because it has <code>Markup:</code> directive for showing the sample markup.</p>
+<p>Here is a basic format for kss-node documentation.</p>
+<pre><code class="lang-css">/*
+Buttons
+
+A majority of buttons in the site are built from the same base class.
+
+:hovered    - Highlight the button when hovered.
+:disabled   - Make the button change appearance to reflect it being disabled.
+.primary    - Indicate that the button is the primary feature of this form.
+
+Markup:
+&lt;a href=&quot;#&quot; class=&quot;button {$modifiers}&quot;&gt;Link Button&lt;/a&gt;
+&lt;button class=&quot;button {$modifiers}&quot;&gt;Button Element&lt;/button&gt;
+
+Styleguide 1.1
+*/
+.button {
+  ...
+}
+.button:hover {
+  ...
+}
+.button:disabled {
+  ...
+}
+.button.primary {
+  ...
+}
+</code></pre>
+<p>kss-node also supports CSS preprocessors such as LESS, SASS and Stylus.
+You can use the <code>//</code> comment section for writing your document.</p>
+<pre><code class="lang-less">// Buttons
+//
+// A majority of buttons in the site are built from the same base class.
+//
+// :hovered    - Highlight the button when hovered.
+// :disabled   - Make the button change appearance to reflect it being disabled.
+// .primary    - Indicate that the button is the primary feature of this form.
+//
+// Markup:
+// &lt;a href=&quot;#&quot; class=&quot;button {$modifiers}&quot;&gt;Link Button&lt;/a&gt;
+// &lt;button class=&quot;button {$modifiers}&quot;&gt;Button Element&lt;/button&gt;
+//
+// Styleguide 1.1
+.button {
+  ...
+  &amp;:hover {
+    ...
+  }
+  &amp;:disabled {
+    ...
+  }
+  .primary {
+    ...
+  }
+}
+</code></pre>
+<p>As you see in the above samples, kss-node comment has some blocks.
+From the top,</p>
+<ol>
+<li>Element&#39;s title</li>
+<li>Element&#39;s description</li>
+<li>List of modifier classes or pseudo-classes</li>
+<li>HTML markup</li>
+<li>Reference to the element&#39;s position in the styleguide</li>
+</ol>
+<p>And each description supports the Markdown writing.</p>
+<h2 id="more-example-code">More example code</h2>
+<p>This document is also created by using kss-node.
+You can see the source code in the <a href="https://github.com/htanjo/kss-node-template/tree/master/demo/src">demo directory</a>.</p>
+<p><a href="https://github.com/htanjo/kss-node-template"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a></p>
+
+          </section>
+        </article>
+        <footer class="kss-footer">
+          <div>Created using <a href="https://github.com/hughsk/kss-node">kss-node</a> and <a href="https://github.com/htanjo/kss-node-template">kss-node-template</a>.</div>
+        </footer>
+      </div>
+    </div>
+    <script src="public/kss.js"></script>
+    <script src="public/jquery-1.9.1.min.js"></script>
+    <!--[if gt IE 8]><!-->
+    <script src="public/rainbow.min.js"></script>
+    <!--<![endif]-->
+    <script src="public/main.js"></script>
+  </body>
+</html>

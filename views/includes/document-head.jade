@@ -1,0 +1,62 @@
+
+//- STANDARD META TAGS
+
+meta(charset='utf-8')
+meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+//- Project Specific
+if metaCreator && metaCreator != ''
+  meta(name='creator', content=metaCreator)
+if metaPublisher && metaPublisher != ''
+  meta(name='publisher', content=metaPublisher)
+
+//- Page Specific
+block metaAuthor
+  if metaAuthor && metaAuthor != ''
+    meta(name='author', content=metaAuthor)
+block metaDescription
+  if metaDescription && metaDescription != ''
+    meta(name='description', content=metaDescription)
+block metaKeywords
+  if metaKeywords && metaKeywords != ''
+    meta(name='keywords', content=metaKeywords)
+
+
+//- PAGE TITLE
+
+block title
+  title #{browserTitle} – #{browserStrapline}
+
+
+//- CSS
+link(rel='stylesheet', href=('css/styles.css'))
+
+
+//- JAVASCRIPT - HEAD SPECIFIC
+
+block headScripts
+  script(src=('/static/js/lib/vendor/Modernizr.js'))
+  <!--[if lte IE 8]>
+  script(src=('/static/js/lib/vendor/html5shiv.js'))
+  <![endif]-->
+
+//- ICONS / IMAGES / DEVICE SPECIFICS
+
+link(rel='shortcut icon', href=('/static/images/meta/favicon.ico'))
+
+//- iOS App Icons / Title
+
+meta(name='apple-mobile-web-app-title', content=iosProjectTitle)
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-57x57.png'),   sizes='57x57')
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-114x114.png'), sizes='114x114')
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-120x120.png'), sizes='120x120')
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-72x72.png'),   sizes='72x72')
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-76x76.png'),   sizes='76x76')
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-144x144.png'), sizes='144x144')
+link(rel='apple-touch-icon-precomposed', href=('/static/images/meta/apple-touch-icon-precomposed-152x152.png'), sizes='152x152')
+
+//- Microsoft Pinned Tile
+
+meta(name='application-name', content=msTileProjectTitle)
+meta(name='msapplication-TileImage', content=('/static/images/meta/microsoft-pinned-tile-image-144x144.png'))
+meta(name='msapplication-TileColor', content=msTileBackground)

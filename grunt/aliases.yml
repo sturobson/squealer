@@ -1,0 +1,43 @@
+default:
+  - copy
+  - uglify
+  - sass
+  - px_to_rem
+  - autoprefixer
+  - cssmetrics
+  - cssmin
+  - uncss
+  - styleguide
+  - jade
+  - browserSync
+  - watch
+
+css_stuff:
+  - sass
+  - px_to_rem
+  - autoprefixer
+  - cssmetrics
+
+js_stuff:
+  - uglify
+
+dev:
+  - sass
+  - copy
+  - js_stuff
+  - jade
+  - browserSync
+  - watch
+
+styleguides:
+  - sass
+  - px_to_rem
+  - autoprefixer
+  - styleguide
+
+tidy:
+  - js_stuff
+  - css_stuff
+  - uncss
+  - cssmin
+  - cssmetrics

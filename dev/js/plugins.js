@@ -1,0 +1,1 @@
+$(window).width()<1100||$(window).scroll(function(){$(this).scrollTop()>160?($("header").addClass("narrow-header"),$(".menu-item, .nav-language-holder").addClass("small-nav")):($("header").removeClass("narrow-header"),$(".menu-item, .nav-language-holder").removeClass("small-nav"))});

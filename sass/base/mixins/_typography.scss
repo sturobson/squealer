@@ -1,0 +1,46 @@
+
+// the magic mixin
+//////////////////
+
+  @mixin font-size($size, $margin: yes, $line-height: $doc-line-height) {
+
+  // generates the font-size in REMs with a PX fallback
+
+    font-size: 0px + $size;
+
+  // line-height functions
+  ////////////////////////
+
+  // if you a line-height is specified in the mixin
+    @if $line-height != $doc-line-height and $line-height != 1 {
+      line-height: ceil($size / $line-height) * ($line-height / $size);
+    }
+
+  // if $line-height == 1 because, typing 1 is quicker than 16
+    @else if $line-height == 1 {
+      line-height: 1;
+    }
+
+  // normal $line-height if the line-height is left.
+    @else {
+      line-height: ceil($size / $doc-line-height) * ($doc-line-height / $size);
+    }
+
+    // margin-bottom functions
+    //////////////////////////
+
+      // if no is bottom margin is required
+      @if $margin == no {
+        margin-bottom: 0;
+      }
+
+    // if a specific bottom margin is required
+      @else if $margin != yes and $margin != no {
+        margin-bottom: 0px + $margin;
+      }
+
+    // if you're keeping the vertical rhythm with the margin
+      @else {
+        margin-bottom: 0px + $doc-line-height;
+      }
+  }

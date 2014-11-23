@@ -1,0 +1,16 @@
+{
+  "projectTitle"        : "Jade Boilerplate",
+  "browserTitle"        : "Jade Boilerplate",
+  "browserStrapline"    : "A base set of Jade files to kickoff a node project.",
+  "metaCreator"         : "Stuart Robson - alwaystwisted.com",
+  "metaPublisher"       : "",
+  "metaAuthor"          : null,
+  "metaDescription"     : "Default Meta Description",
+  "metaKeywords"        : "Default, Meta, Keywords",
+  "iosProjectTitle"     : "Jade BP",
+  "msTileProjectTitle"  : "Jade Boilerplate",
+  "msTileBackground"    : "#2b6ede",
+
+  "domain"              : "",
+  "analytics"           : ""
+}
