@@ -12,15 +12,17 @@ default:
   - browserSync
   - watch
   - sripmq
+  - csspretty
 
 nomqs:
   - stripmq
+  - csspretty
 
 css_stuff:
   - sass
   - px_to_rem
-  - stripmq
   - autoprefixer
+  - nomqs
   - cssmetrics
 
 js_stuff:
@@ -28,6 +30,7 @@ js_stuff:
 
 dev:
   - sass
+  - nomqs
   - copy
   - js_stuff
   - jade
@@ -36,6 +39,7 @@ dev:
 
 styleguides:
   - sass
+  - nomqs
   - px_to_rem
   - autoprefixer
   - styleguide
