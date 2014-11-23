@@ -9,11 +9,8 @@ module.exports = {
       ]
     },
     options: {
-      watchTask: true,
-      server: {
-        baseDir: './dev/',
-        directory: false
-      }
+      proxy: "grunt.dev/dev",
+      watchTask: true
     }
   }
 };

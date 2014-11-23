@@ -1,4 +1,7 @@
 module.exports = {
+  options: {
+    spawn: false,
+  },
   sass: {
     files: ['sass/**/*.scss'],
     tasks: ['sass']
@@ -6,13 +9,5 @@ module.exports = {
   jade: {
     files: ['**/*.jade'],
     tasks: ['jade']
-  },
-  livereload: {
-    options: {
-      livereload: 1337
-    },
-    files: [
-    './',
-    ]
   }
 };
