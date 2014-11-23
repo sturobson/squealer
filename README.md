@@ -11,6 +11,10 @@ my grunt flavoured starting point, include Sassifaction, KSS and more.
 
 initial commit of a working boilerplate.
 
+#### v. 0.0.2
+
+fixes Browsersync to work on devices (thanks to Matthew Passmore).
+
 
 ## Issues
 
@@ -22,4 +26,5 @@ initial commit of a working boilerplate.
 
 ### Things I need to look at / fix
 
-- [ ] Browsersync so it works on devices
+- [x] Browsersync so it works on devices
+- [ ] Make Styleguide a bit more 'me' rather than the node-kss template.
