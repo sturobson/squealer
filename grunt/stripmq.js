@@ -1,7 +1,7 @@
 module.exports = {
   options: {
     width: 1000,
-    type: 'screen'
+    type: ''
   },
   all: {
     files: {
