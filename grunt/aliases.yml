@@ -17,12 +17,12 @@ default:
 nomqs:
   - stripmq
   - csspretty
+  - cssmetrics:oldIE
 
 css_stuff:
   - sass
   - px_to_rem
   - autoprefixer
-  - nomqs
   - cssmetrics
 
 js_stuff:
