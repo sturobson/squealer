@@ -13,6 +13,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-css-metrics": "^0.1.2",
     "grunt-csspretty": "^0.3.3",
+    "grunt-imageoptim": "^1.4.1",
     "grunt-px-to-rem": "^0.3.2",
     "grunt-sass": "^0.16.1",
     "grunt-stripmq": "0.0.6",
