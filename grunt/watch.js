@@ -4,7 +4,7 @@ module.exports = {
   },
   sass: {
     files: ['sass/**/*.scss'],
-    tasks: ['sass']
+    tasks: ['sass', 'stripmq', 'csspretty']
   },
   jade: {
     files: ['**/*.jade'],
