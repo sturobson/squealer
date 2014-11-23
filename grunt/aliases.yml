@@ -11,10 +11,15 @@ default:
   - jade
   - browserSync
   - watch
+  - sripmq
+
+nomqs:
+  - stripmq
 
 css_stuff:
   - sass
   - px_to_rem
+  - stripmq
   - autoprefixer
   - cssmetrics
 

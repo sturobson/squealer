@@ -14,6 +14,7 @@
     "grunt-css-metrics": "^0.1.2",
     "grunt-px-to-rem": "^0.3.2",
     "grunt-sass": "^0.16.1",
+    "grunt-stripmq": "0.0.6",
     "grunt-styleguide": "^0.2.17",
     "grunt-uncss": "^0.3.7",
     "load-grunt-config": "^0.16.0",
