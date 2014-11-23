@@ -18,6 +18,7 @@ fixes Browsersync to work on devices (thanks to Matthew Passmore).
 #### v. 0.0.3
 
 adds stripmq plugin
+adds css pretty plugin
 
 
 ## Issues
@@ -26,7 +27,7 @@ adds stripmq plugin
 
 - [ ] Modernizer
 - [ ] a 'build folder' construct
-- [ ] separate dev/styleguid browsersync servers
+- [ ] separate dev/styleguide browsersync servers
 
 ### Things I need to look at / fix
 
