@@ -15,6 +15,10 @@ initial commit of a working boilerplate.
 
 fixes Browsersync to work on devices (thanks to Matthew Passmore).
 
+#### v. 0.0.3
+
+adds stripmq plugin
+
 
 ## Issues
 
