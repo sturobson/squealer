@@ -220,6 +220,34 @@ li > ul, li > ol {
   .button:hover {
     border-color: red; }
 
+/* line 28, /Users/sr/Sites/squealer/sass/patterns/_buttons.scss */
+body {
+  background: url('mobile-background.png');
+  margin: 100px; }
+
+/* Change the background for tablets */
+@media screen and (min-width: 640px) {
+  /* line 35, /Users/sr/Sites/squealer/sass/patterns/_buttons.scss */
+  body {
+    background: url('tablet-background.png');
+    margin: 120px; }
+ }
+
+/* Change the background again for desktop and increase the font-size */
+@media (min-width: 900px) {
+  /* line 43, /Users/sr/Sites/squealer/sass/patterns/_buttons.scss */
+  body {
+    background: url('desktop-background.png');
+    font-size: 120%; }
+ }
+
+/* If it's a monochrome screen, show a black background */
+@media (monochrome) {
+  /* line 51, /Users/sr/Sites/squealer/sass/patterns/_buttons.scss */
+  body {
+    background: black; }
+ }
+
 /* # This is a test */
 /* Provides extra visual weight and identifies the primary action in a set of buttons.
 
