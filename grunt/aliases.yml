@@ -16,7 +16,7 @@ default:
   - imageoptim
 
 images:
-  - imageoptim
+  - newer:imageoptim
   - copy:img
 
 nomqs:
