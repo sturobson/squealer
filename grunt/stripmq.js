@@ -5,7 +5,7 @@ module.exports = {
   },
   all: {
     files: {
-      './dev/css/oldie.css': ['./dev/css/styles.css']
+      './dev/css/oldie.css': ['./dev/assets/css/styles.css']
     }
   }
 };

@@ -1,7 +1,7 @@
 module.exports = {
   dist: {
     files: {
-      'dev/css/styles.css': ['dev/**/*.html']
+      'dev/assets/css/styles.css': ['dev/**/*.html']
     }
   }
 };

@@ -7,7 +7,7 @@ module.exports = {
       name: 'kss',
       options: {
         includeType: 'sass',
-        includePath: 'dev/css/style.css'
+        includePath: 'dev/assets/css/style.css'
       }
     }
   },

@@ -17,6 +17,6 @@ module.exports = {
       },
       selectors: 'separateline',
     },
-    src: 'dev/css/oldie.css',
+    src: 'dev/assets/css/oldie.css',
   }
 };

@@ -7,7 +7,7 @@ module.exports = {
       ignore: []
     },
     files: {
-      'dev/css/styles.css': 'dev/css/styles.css'
+      'dev/assets/css/styles.css': 'dev/assets/css/styles.css'
     }
   }
 };

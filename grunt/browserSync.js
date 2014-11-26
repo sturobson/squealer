@@ -2,7 +2,7 @@ module.exports = {
   default_option: {
     bsFiles: {
       src: [
-      'dev/css/*.css',
+      'dev/assets/css/*.css',
       '**/*.html',
       'img/*',
       'js/**/*.js'

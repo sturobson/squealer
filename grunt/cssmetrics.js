@@ -5,7 +5,7 @@ module.exports = {
       maxSelectors: 4096,
       maxFileSize: 10240000
     },
-    src: ['dev/css/styles.css']
+    src: ['dev/assets/css/styles.css']
   },
   oldIE: {
     options: {
@@ -13,6 +13,6 @@ module.exports = {
       maxSelectors: 4096,
       maxFileSize: 10240000
     },
-    src: ['dev/css/oldie.css']
+    src: ['dev/assets/css/oldie.css']
   }
 };
