@@ -7,8 +7,8 @@
     <meta name="description" content="Default Meta Description">
     <meta name="keywords" content="Default, Meta, Keywords">
     <title>Jade Boilerplate – A base set of Jade files to kickoff a node project.</title>
-    <link rel="stylesheet" href="css/styles.css"><!--[if lte IE 8]>
-    <link rel="stylesheet" href="css/oldIE.css"><![endif]-->
+    <link rel="stylesheet" href="assets/css/styles.css"><!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/oldIE.css"><![endif]-->
     <script src="/static/js/lib/vendor/Modernizr.js"></script><!--[if lte IE 8]>
     <script src="/static/js/lib/vendor/html5shiv.js"></script><![endif]-->
     <link rel="shortcut icon" href="/static/images/meta/favicon.ico">
@@ -29,7 +29,7 @@
       <header role="banner" class="main-header">
         <h1 class="site-title"><a href="/">Jade Boilerplate</a></h1>
       </header>
-      <main id="navigation" role="navigation" aria-label="Primary Navigation" class="main-navigation">
+      <div id="navigation" role="navigation" aria-label="Primary Navigation" class="main-navigation">
         <nav>
           <ul>
             <li class="is-active"><a href="#nav-page-1">Page 1</a></li>
@@ -38,7 +38,7 @@
             <li><a href="#nav-page-4">Page 4</a></li>
           </ul>
         </nav>
-      </main>
+      </div>
       <main id="content" role="main" class="main-content">
       </main>
       <footer role="contentinfo" class="main-footer"><small>© 2014 Site Name</small>
@@ -47,9 +47,10 @@
     <h4>Test</h4>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
-      window.jQuery || document.write('<script src="/static/js/lib/vendor/jquery-1.11.0.min.js"><\/script>')
+      window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.11.0.min.js"><\/script>')
       
     </script>
-    <script src="/static/js/build/index.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/scripts.js"></script>
   </body>
 </html>
