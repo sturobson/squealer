@@ -15,3 +15,4 @@ my grunt flavoured starting point, include Sassifaction, KSS and more.
 
 - [x] Browsersync so it works on devices
 - [ ] Make Styleguide a bit more 'me' rather than the node-kss template.
+- [ ] Documentation on setting it up.
