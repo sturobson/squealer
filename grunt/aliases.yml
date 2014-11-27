@@ -30,6 +30,15 @@ css_stuff:
   - autoprefixer
   - cssmetrics
 
+css_tests:
+  - sass
+  - px_to_rem
+  - autoprefixer
+  - cssmetrics
+  - uncss
+  - cssmetrics
+  - stylestats
+
 js_stuff:
   - uglify
 
