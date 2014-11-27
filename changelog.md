@@ -14,3 +14,9 @@ fixes Browsersync to work on devices (thanks to Matthew Passmore).
 
 adds stripmq plugin
 adds css pretty plugin
+
+#### v. 0.0.4
+
+adds Perfbar to pages << might split out somehow
+adds stylestats Grunt plugin
+moves CSS/JS/images into 'assets' folder
