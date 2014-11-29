@@ -1,7 +1,20 @@
 {
   "name": "grunt-bp",
   "description": "Sass and other things grunt shizzle.",
+  "author": "Stuart Robson <stu@alwaystwisted.com>",
   "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sturobson/squealer"
+  },
+  "bugs": {
+    "url": "https://github.com/sturobson/squealer/issues"
+  },
+  "keywords": [
+    "sass",
+    "jade",
+    "boilerplate"
+  ],
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "^1.0.1",
