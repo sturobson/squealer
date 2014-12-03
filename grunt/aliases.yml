@@ -14,6 +14,7 @@ default:
   - sripmq
   - csspretty
   - imageoptim
+  - notify
 
 images:
   - newer:imageoptim
@@ -49,6 +50,7 @@ dev:
   - js_stuff
   - jade
   - browserSync
+  - notify
   - watch
 
 styleguides:
