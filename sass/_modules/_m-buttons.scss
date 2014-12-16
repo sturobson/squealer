@@ -7,19 +7,17 @@
 // .primary    - Indicate that the button is the primary feature of this form.
 //
 // Markup:
-// <a href="#" class="button {$modifiers}">Link Button</a>
-// <button class="button {$modifiers}">Button Element</button>
+// <a href="#" class="button">Link Button</a>
+// <button class="button">Button Element</button>
 //
 // Styleguide 1.1
+
 .button {
   background-color: 4B2409;
-  border-radius: 4px;
   border: 3px solid transparent;
+  border-radius: 4px;
+  
   &:hover {
-    border-color: red;
-  }
-  &:disabled {
-  }
-  .primary {
+    border-color: #f00;
   }
 }

@@ -1,5 +1,3 @@
-
-
 @mixin mq($point, $query1: min, $IE: false, $query2: width) {
     @if $IE == true{
         .lt-ie9 & {

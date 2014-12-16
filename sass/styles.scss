@@ -1,43 +1,26 @@
-	// Mixins
-	@import "base/_mixins.scss";
+// Variables
 
-	// CSS Font Stacks
+@import "_config/_config";
 
-	@import "base/_fonts.scss";
 
-	// Variables
-	@import "_variables.scss";
+@import "_config/_mixins",
+        "_config/_fontstacks",
+        "_config/_bizarro",
+        "_config/_helpers";
 
-	// Normalize
-	@import "base/_bizarro.scss";
 
-	// Helpers
-	@import "base/_helpers.scss";
 
-	// -------------------------------------
-	//   import the partials
-	// -------------------------------------
+// -------------------------------------
+//   import the partials
+// -------------------------------------
 
-	@import "modules/_m-buttons.scss";
+@import "_modules/m-buttons";
 
-  /* # This is a test */
 
-	/* Provides extra visual weight and identifies the primary action in a set of buttons.
+// Print styles
+@import "_config/print";
 
-	<button class="btn primary">Primary</button>
+// DEBUG MODE
+$debugMode:         false;
 
-	*/
-
-	.btn.primary {
-		background: steelblue;
-		color: snow;
-		border: 2px outset steelblue;
-	}
-
-	// Print styles
-	@import "base/_print.scss";
-
-	// DEBUG MODE
-	$debugMode:         false;
-
-	@import "base/_debug.scss";
+@import "_config/debug";
