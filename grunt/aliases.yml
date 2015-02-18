@@ -11,7 +11,8 @@ default:
   - jade
   - browserSync
   - watch
-  - sripmq
+  - cssUrlEmbed
+  - stripmq
   - csspretty
   - imageoptim
   - notify
@@ -22,6 +23,7 @@ images:
 
 nomqs:
   - stripmq
+  - cssUrlEmbed
   - csspretty
   - cssmetrics:oldIE
 
@@ -29,12 +31,14 @@ css_stuff:
   - sass
   - px_to_rem
   - autoprefixer
+  - cssUrlEmbed
   - cssmetrics
 
 css_tests:
   - sass
   - px_to_rem
   - autoprefixer
+  - cssUrlEmbed
   - cssmetrics
   - uncss
   - cssmetrics
@@ -58,6 +62,7 @@ styleguides:
   - nomqs
   - px_to_rem
   - autoprefixer
+  - cssUrlEmbed
   - styleguide
 
 tidy:

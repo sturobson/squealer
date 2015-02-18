@@ -1,13 +1,14 @@
 module.exports = {
     localPort: 3000,
-    url: 'localhost/shellideas360',
+    url: '',
     remotePort: 8080,
+		downstream: 150,
     networkProfile: '3G',
-    cdn: true,
+    cdn: false,
     output: 'perf-report/',
     animation: 'my-test.gif',
     fps: 1,
     viewportWidth: 1280,
     viewportHeight: 768,
     limit: 100
-};  
+};
