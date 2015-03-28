@@ -1,0 +1,146 @@
+
+<h1>Using Sass for “Quantity Queries”</h1>
+<p>Technically, CSS doesn’t have the ability to count an element’s siblings. However, Heydon recently showed us what he calls <em>quantity queries</em>: a clever combination of <code>:nth-last-child()</code>, <code>:first-child</code>, and <code>~</code> to style elements based on how many elements are in a single parent. Have a look at that <a href="http://alistapart.com/article/quantity-queries-for-css">A List Apart article</a> and <a href="http://codepen.io/jdsteinbach/pen/myjOQy">my interactive demo on CodePen</a> to get a feel for what’s going on.</p>
+
+<h2>How Quantity Queries Work</h2>
+
+<p>Here’s the basic gist of quantity queries: by using <code>:nth-last-child($n)</code> and <code>:first-child</code> together, you can identify an element that is a certain number from the end of its siblings and the first child of its parent. The number from the end tells us the number of siblings. For example, the selector <code>:nth-last-child(6):first-child</code> will only select the first element in a group of 6 elements. If you select that element and all of its following siblings using <code>~</code>, you can write custom CSS for the group of siblings based on how many there are.</p>
+
+[code language="sass"]
+:nth-last-child(6):first-child,
+:nth-last-child(6):first-child ~ * {
+    // unique CSS for elements when there are 6 of these
+}
+[/code]
+
+<p>This code lets you target a specific count, but let’s say you want to change styles when there are “at least” or “less than” a certain number. You can do that by modifying the <code>:nth-last-child()</code> value. To target groups of <em>at least</em> 6 items, use <code>:nth-last-child(n + 6):first-child</code> and for groups of <em>less than</em> 6, use <code>:nth-last-child(-n + 6):first-child</code>.</p>
+
+<h2>Writing Quantity Queries with Sass</h2>
+
+<p>The code above is great, but let’s use Sass to make it a litte DRY-er: we don’t need to rewrite the entire syntax everywhere we want to use this technique. We’ll start off with a single mixin that takes two parameters: the number and the comparison:</p>
+
+[code language="sass"]
+@mixin quantity-query( $number, $comparison: 'equal' ) {
+    // generate code in here
+}
+[/code]
+
+<p>Here <code>$number</code> will be an integer: what you want the CSS to “count”. The <code>$comparison</code> will be one of three values: <code>greater</code>, <code>less</code>, or <code>equal</code>. We’ll specifiy <code>equal</code> as the default <code>$comparison</code> value if none is specified.</p>
+
+<p>The first thing we’ll do inside our mixin is set the <code>:nth-last-child()</code> value based on <code>$number</code> and <code>$comparison</code>:</p>
+
+[code language="sass"]
+@if index( ('greater' 'more' '>'), $comparison ) {
+    $nth: 'n + #{$number}';
+  } @else if index( ('less' 'fewer' '<'), $comparison ) {
+    $nth: '-n + #{$number}';
+  } @else if index( ('equal' 'same' '='), $comparison ) {
+    $nth: $number;
+  } @else {
+    @warn "Sorry, that’s an invalid $comparison value."
+  }
+[/code]
+
+<p>We’ve got a little freedom here: you can specify <code>greater</code>, <code>more</code>, or <code>'>'</code> for the greater than <code>$comparison</code>. You can specify <code>less</code>, <code>fewer</code>, or <code>'<'</code> for the less than <code>$comparison</code>. You can specify <code>equal</code>, <code>same</code>, or <code>'='</code> for the equal to <code>$comparison</code>. <em>Note: if you use the symbols, be sure to wrap them in quotes.</em></p>
+
+<p>Based on the <code>$comparison</code> value, the <code>:nth-last-child()</code> value is set as a string. We’re using Sass interpolation inside that string (<code>#{$variable}</code>) because we want the number to be part of a string, not part of an equation.</p>
+
+<p>After we’ve got the right value for <code>:nth-last-child()</code>, we’ll output our selectors:</p>
+
+[code language="sass"]
+&:nth-last-child(#{$nth}):first-child {
+    &,
+    & ~ * {
+      @content;
+    }
+  }
+[/code]
+
+<p>The <code>&</code> at the front means that we’re attaching the pseudo-selectors to the selector in which you use this mixin. If you put it inside a <code>.item {}</code> block, you’ll get <code>.item:nth-last-child…</code>. Inside the selector for the first element, there’s another <code>&</code> followed by <code>& ~ *</code>: this applies the styles to the first element of the group and all its siblings. <em>Note: I know, not everyone likes <code>*</code> selectors, but to protect Sass nesting, that’s the safest option for us here.</em></p>
+
+<p>The <code>@content;</code> directive simply repeats whatever CSS you write inside the mixin when you use it.</p>
+
+<h2>Bonus Mixins for Speed!</h2>
+
+<p>We can use this mixin just fine as it is:</p>
+
+[code language="sass"]
+.menu-item {
+  @include quantity-query(5, greater) {
+    color: blue;
+  }
+}
+[/code]
+
+<p>… and we’ll get:</p>
+
+[code language="css"]
+.menu-item:nth-last-child(n+5):first-child,
+.menu-item:nth-last-child(n+5):first-child ~ * {
+  color: blue;
+}
+
+[/code]
+
+<p>But we can make this better with alias functions:</p>
+
+[code language="sass"]
+@mixin qq-equal( $number ) {
+  @include quantity-query( $number, equal ) {
+    @content;
+  }
+}
+
+@mixin qq-greater( $number ) {
+  @include quantity-query( $number, greater ) {
+    @content;
+  }
+}
+
+@mixin qq-less( $number ) {
+  @include quantity-query( $number, less ) {
+    @content;
+  }
+}
+[/code]
+
+<p>Now you can use a unique mixin for each comparison value if that makes your workflow better.</p>
+
+<h2>Beyond Menus</h2>
+
+<p>So far most of the demos of this feature are menus. But this technique can do so much more! Here’s an example of a real-live use case I was able to solve with quantity queries.</p>
+
+<p>A designer recently gave me a comp for a page that displayed four categories of content: each category had a title and a list of links to individual pieces of content. The most reasonable markup for this content is:</p>
+
+[code language="html"]
+<div class="content-category">
+  <h3 class="content-category-title">Title</h3>
+  <ul class="content-category-list">
+    <li class="content-category-list-item">Item</li>
+  </ul>
+</div>
+[*4]
+[/code]
+
+<p>On desktops, these categories are laid out in columns. That’s simple enough. However, the designer saw a different layout for smaller screens: all 4 titles should be at the top of the page and act as toggles to show/hide the items in their lists below all the titles. On the left side of the following image, you can see the "desktop" layout; on the right side of the divider, you can see the “mobile” layout:</p>
+
+<p><img src="layouts.jpg" alt="Quantity Queries"/></p>
+
+<p>The shortcut solution here would probably have been to create a second container with copies of the titles and use those elements for toggle triggers on small screens, then hide it on larger screens. But on the other hand, we could keep the good markup I described above, and use quantity queries to fix our layout. Here’s how I did it:</p>
+
+<ol>
+<li>On small screens, position the titles absolutely; position them statically after the larger breakpoint.</li>
+<li>Use quantity queries to determine how far from the top the list should be positioned on small screens.</li>
+</ol>
+
+<p>While the comps started with 4 categories, I’m always suspicious that in the future, the client may want 3 or 5 or 7 categories. To prepare for those cases, I used a <a href="http://thesassway.com/intermediate/if-for-each-while#for"><code>@for</code> loop</a> twice in this code. First, I looped through 1 through <code>$max</code> (<code>$max</code> is currently set at 7, but can be tweaked to account for higher limits in the future). The loop inside the <code>.content-category</code> block (line 55) calls the <code>qq-equal()</code> mixin and creates the padding necessary at the top of each list based on how many categories there are. The loop inside the <code>.content-category-title</code> block (line 93) doesn’t use a quantity query; it merely sets the <code>top</code> position of each title based on which category it’s in (<code>:nth-child()</code>).</p>
+
+<p>Here’s a demo from CodePen:</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="qEJRzW" data-default-tab="result" data-user="jdsteinbach" class='codepen'>See the Pen <a href='http://codepen.io/jdsteinbach/pen/qEJRzW/'>qEJRzW</a> by James Steinbach (<a href='http://codepen.io/jdsteinbach'>@jdsteinbach</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2>Conclusion</h2>
+
+<p>With a couple <code>@for</code> loops and our quantity query mixins, we were able to maintain sensible semantic markup and create an advanced responsive layout for this design. Feel free to grab the mixins from <a href="http://sassmeister.com/gist/578456f54797b8e5d76c">this Sassmeister gist</a> and share your creative quantity query uses in the comments!</p>

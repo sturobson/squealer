@@ -71,3 +71,7 @@ tidy:
   - uncss
   - cssmin
   - cssmetrics
+
+test:
+  - sass_directory_import
+  - sass
